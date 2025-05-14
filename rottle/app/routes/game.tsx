@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Game() {
     const [boxImages, setBoxImages] = useState(Array(5).fill(null));
-    const [draggedImage, setDraggedImage] = useState<string|null>(null);
+    const [draggedImage, setDraggedImage] = useState<number|null>(null);
     let [imgCnt, setImgCnt] = useState(0);
     let [guessCnt, setGuessCnt] = useState(0);
 
@@ -49,7 +49,7 @@ export default function Game() {
                         onDrop={() => handleDrop(i)}
                     >
                         {
-                            img?(<img className="object-stretch" src={img} />):(<span className="text-[16px] font-light">Alomani {i%5+1}</span>)
+                            img?(<img className="object-stretch" src={`img/brainrot/${img}.jpg`} />):(<span className="text-[16px] font-light">Alomani {i%5+1}</span>)
                         }
                     </div>
                 ))}
@@ -60,7 +60,7 @@ export default function Game() {
                 {Array.from({ length: 8 }).map((_, i) => {
                     const imgSrc=`img/brainrot/${i+1}.jpg`;
                     return (
-                        <img key={i} className="h-32 w-32" src={imgSrc} alt={`Alomani ${i+1}`} draggable onDragStart={() => setDraggedImage(imgSrc)} />
+                        <img key={i} className="h-32 w-32" src={imgSrc} alt={`Alomani ${i+1}`} draggable onDragStart={() => setDraggedImage(i+1)} />
                     )
                 })}
             </div>
