@@ -12,6 +12,8 @@ declare module "@remix-run/node" {
 export default defineConfig({
   plugins: [
     remix({
+      basename: "/",
+      buildDirectory: "build",
       future: {
         v3_fetcherPersist: true,
         v3_relativeSplatPath: true,
@@ -19,6 +21,12 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
       },
+      // routes(defineRoutes) {
+      //   return defineRoutes((route => {
+
+      //   }))
+      // }
+      serverBuildFile: "index.js"
     }),
     tsconfigPaths(),
     netlifyPlugin()
