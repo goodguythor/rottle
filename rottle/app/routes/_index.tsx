@@ -99,7 +99,7 @@ export default function Game() {
                         onDrop={() => handleDrop(i)}
                     >
                         {
-                            img?(<img className="h-24 w-24" src={`img/brainrot/${img%10}.jpg`} />):(<span className="text-[16px] font-light">Alomani {i%5+1}</span>)
+                            img?(<img className="h-24 w-24" src={`img/brainrot/${img%10}.jpg`} />):(<span className="text-[16px] text-black font-light">Alomani {i%5+1}</span>)
                         }
                     </div>
                 ))}
